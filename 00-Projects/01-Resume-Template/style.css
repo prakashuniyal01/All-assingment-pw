@@ -46,6 +46,11 @@ html, body{
     padding: 10px 10px;
 }
 
+.ancar-tag{
+    text-decoration: none;
+    color: #ffffff;
+}
+
 .professional-detail{
     padding-inline: 40px;
 }
