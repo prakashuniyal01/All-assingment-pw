@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>URL Validator</title>
+    <style>
+        /* Simple styling */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+        }
+
+        .input-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .result.valid {
+            color: green;
+        }
+
+        .result.invalid {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>URL Validator</h1>
+
+    <div class="input-container">
+        <label for="url">Enter URL:</label>
+        <input type="text" id="url" placeholder="http://example.com or https://example.com" />
+    </div>
+
+    <button onclick="validateURL()">Validate URL</button>
+
+    <div id="result" class="result"></div>
+
+    <script>
+        function validateURL() {
+            const urlInput = document.getElementById("url");
+            const url = urlInput.value.trim();
+
+            // Regular expression to validate URLs
+            const regex = /^(http:\/\/|https:\/\/)[a-zA-Z0-9\-_]+(\.[a-zA-Z0-9\-_]+)+$/;
+
+            // Get the result element
+            const resultElement = document.getElementById("result");
+
+            // Validate the URL using the regular expression
+            if (regex.test(url)) {
+                // URL is valid
+                resultElement.textContent = "The URL is valid.";
+                resultElement.className = "result valid";
+            } else {
+                // URL is invalid
+                resultElement.textContent = "The URL is not valid.";
+                resultElement.className = "result invalid";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
